@@ -74,7 +74,6 @@ class BaseModel:
         for key, value in data.items():
             if hasattr(self, key):
                 setattr(self, key, value)
-        self.save()
 
 
 class User(BaseModel):
@@ -180,3 +179,20 @@ class User(BaseModel):
             review (Review): Review instance to add.
         """
         self.reviews.append(review)
+
+    def to_dict(self):
+        """
+        Convertit l'objet User en dictionnaire, utile pour le JSON.
+
+        Returns:
+            dict: Représentation dictionnaire de l'utilisateur.
+        """
+        return {
+            "id": self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "email": self.email,
+            "is_admin": self.is_admin,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+        }
