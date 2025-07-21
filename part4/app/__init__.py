@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restx import Api
 from app.extensions import db, bcrypt, jwt
 
@@ -32,6 +33,7 @@ def create_app(config_class=config.DevelopmentConfig):
     """
     app = Flask(__name__)
     app.config.from_object(config_class)
+    CORS(app)
 
     bcrypt.init_app(app)
     jwt.init_app(app)
