@@ -21,6 +21,12 @@ header {
     padding: 1rem;
 }
 
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 nav a {
     color: #fff;
     text-decoration: none;
@@ -38,5 +44,17 @@ div.review-card {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
+}
+
+div a#login-link {
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+div a#login-link:hover {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
 }
 
