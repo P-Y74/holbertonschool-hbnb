@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Review</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt="Index" width="160" height="70"></a>
+            <a href="index.html" id="index-link">Index</a>
+            <a href="place.html" id="place-link">Place</a>
+            <a href="add_review.html" id =add_review-link>Add Review</a>
+            <a href="login.html" id="login-link">Login</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Add something to idfentify the place you're reviewing -->
+        <form id="review-form">
+            <h2>Add a Review</h2>
+            <label for="review">Your Review:</label>
+            <textarea id="review" name="review" required></textarea>
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <!-- Options for rating -->
+            </select>
+            <button type="submit">Submit Review</button>
+        </form>
+    </main>
+    <script src="scripts.js"></script>
+    <footer>
+        <p>&copy;2024 HBnB Evolution. All rights reserved.</p>
+    </footer>
+</body>
+</html>
