@@ -21,15 +21,32 @@
     </header>
     <main>
         <section id="filter">
-            <label for="price-filter">Max Price:</label>
-            <select id="price-filter">
+            <h1 id="title-page">Available Places</h1>
+            <div class="form-inline">
+                <label for="price-filter">Max Price:</label>
+                <select id="price-filter">
+            </div>
                 <!-- Options will be populated dynamically -->
             </select>
         </section>
         <section id="places-list">
             <div class="place-card">
                 <h1>Title</h1>
-                <p>Price</p>
+                <p>Price per night: 150€</p>
+                <form action="{{ url_for('place') }}">
+                    <button type="submit" class="details-button">View Details</button>
+                </form>
+            </div>
+            <div class="place-card">
+                <h1>Title</h1>
+                Price per night: 150€
+                <form action="{{ url_for('place') }}">
+                    <button type="submit" class="details-button">View Details</button>
+                </form>
+            </div>
+            <div class="place-card">
+                <h1>Title</h1>
+                <p>Price per night: 150€</p>
                 <form action="{{ url_for('place') }}">
                     <button type="submit" class="details-button">View Details</button>
                 </form>
