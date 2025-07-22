@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Places</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/icon.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon.png') }}">
 
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html"><img src="images/logo.png" alt="HBnB logo" width="160" height="70"></a>
-            <a href="index.html" id="index-link">Index</a>
-            <a href="place.html" id="place-link">Place</a>
-            <a href="add_review.html" id =add_review-link>Add Review</a>
-            <a href="login.html" id="login-link">Login</a>
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70"></a>
+            <a href="{{ url_for('login') }}" id="login-link">Login</a>
         </nav>
     </header>
     <main>
@@ -29,15 +26,15 @@
             <div class="place-card">
                 <h1>Title</h1>
                 <p>Price</p>
-                <form action="place.html">
+                <form action="{{ url_for('place') }}">
                     <button type="submit" class="details-button">View Details</button>
                 </form>
             </div>
         </section>
     </main>
-    <script src="scripts.js"></script>
     <footer>
         <p>&copy;2024 HBnB Evolution. All rights reserved.</p>
     </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
