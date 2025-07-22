@@ -11,8 +11,12 @@
 <body>
     <header>
         <nav>
-            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70"></a>
-            <a href="{{ url_for('login') }}" id="login-link">Login</a>
+            <div>
+                <a href="{{ url_for('index') }}" id="logo-link"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70"></a>
+            </div>
+            <div>
+                <a href="{{ url_for('login') }}" id="login-link">Login</a>
+            </div>
         </nav>
     </header>
     <main>
