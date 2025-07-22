@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from flask_restx import Api
 from app.extensions import db, bcrypt, jwt
@@ -47,5 +47,22 @@ def create_app(config_class=config.DevelopmentConfig):
     api.add_namespace(amenities_ns, path='/api/v1/amenities')
     api.add_namespace(auth_ns, path="/api/v1/auth")
     api.add_namespace(admin_ns, path='/api/v1/admin')
+
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
+
+    @app.route('/index')
+    def index():
+        return render_template('index.html')
+
+    @app.route('/place')
+    def place():
+        return render_template('place.html')
+
+    @app.route('/add_review')
+    def add_review():
+        return render_template('add_review.html')
+
 
     return app
