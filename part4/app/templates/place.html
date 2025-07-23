@@ -20,18 +20,20 @@
     </header>
     <main>
         <section id="place-details">
-            <h1>Title</h1>
-            <div class="place-details, place-info">
+            <div>
+                <h1 id="title-page">Title</h1>
+            </div>
+            <div class="place-details place-info">
                 <p>Owner:</p>
                 <p>Price per night:</p>
                 <p>Description:</p>
                 <p>Amenities:</p>
             </div>
-            <h2>Reviews</h2>
+            <h2 id="review-title">Reviews</h2>
             <div class="review-card">
-                <p>User:</p>
-                <p>text</p>
-                <p>rating</p>
+                <p id="bold-text">User:</p>
+                <p>Text</p>
+                <p>Rating:</p>
             </div>
         </section>
         <section id="reviews">
@@ -42,8 +44,16 @@
             <form id="review-form" class="add-review, form">
                 <label for="review-text">Review:</label>
                 <textarea id="review-text" name="review-text" required></textarea>
-
-                <button type="submit">Submit</button>
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <!-- Options for rating -->
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                </select>
+                <button type="submit" id="submit-button">Submit</button>
             </form>
         </section>
     </main>
