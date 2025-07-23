@@ -20,6 +20,7 @@
     </header>
     <main>
         <!-- Add something to idfentify the place you're reviewing -->
+        <h1 id="title-page">Reviewing: "Place to review"</h1>
         <form id="review-form">
             <h2>Add a Review</h2>
             <label for="review">Your Review:</label>
@@ -27,6 +28,11 @@
             <label for="rating">Rating:</label>
             <select id="rating" name="rating" required>
                 <!-- Options for rating -->
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
             </select>
             <button type="submit">Submit Review</button>
         </form>
