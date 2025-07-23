@@ -71,6 +71,8 @@ div a#login-link:hover {
 
 h1#title-page {
     font-size: 2rem;
+    text-align: center;
+    margin: 10px;
 }
 
 label {
@@ -125,3 +127,59 @@ section#filter {
 .form-inline {
     text-align: center;
 }
+
+.place-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#review-title {
+    margin: 20px;
+}
+
+.review-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#bold-text {
+    font-weight: bold;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#review-form textarea,
+#review-form select,
+#review-form button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin: 10px 0px;
+    align-items: center;
+}
+
+#review-form button {
+    background-color: #3ac4fe;
+    color: white;
+    border: 1px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#review-form button:hover {
+    background-color: #007BFF;
+}
+
+#review-form label {
+    font-weight: bold;
+}
+
