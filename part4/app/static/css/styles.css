@@ -56,14 +56,16 @@ div.review-card {
     border-radius: 10px;
 }
 
-div a#login-link {
+div a#login-link,
+div button#logout-button {
     text-decoration: none;
     padding: 8px 12px;
     transition: background-color 0.3s, color 0.3s;
     border-radius: 5px;
 }
 
-div a#login-link:hover {
+div a#login-link:hover,
+div button#logout-button:hover {
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
