@@ -81,11 +81,33 @@ label {
     font-weight: bold;
 }
 
-section#places-list {
+/*section#places-list {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+}*/
+
+/*div.place-card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}*/
+
+section#places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 div.place-card {
