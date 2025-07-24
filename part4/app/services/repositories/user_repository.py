@@ -1,5 +1,5 @@
 from app.models.user import User
-from app import db
+from app.extensions import db
 from app.persistence.repository import SQLAlchemyRepository
 
 
@@ -21,7 +21,7 @@ class UserRepository(SQLAlchemyRepository):
             db.session.commit()
             return user
         return None
-        
+
     def get_user(self, user_id):
         return self.get(user_id)
 
