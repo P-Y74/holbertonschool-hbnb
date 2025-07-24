@@ -1,0 +1,14 @@
+<header>
+    <nav>
+        <div class="nav-left">
+            <a href="{{ url_for('index') }}" id="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70">
+            </a>
+            <a href="{{ url_for('index') }}" id="home-link">Home</a>
+        </div>
+        <div class="nav-right">
+            <a href="{{ url_for('login') }}" id="login-link">Login</a>
+            <button id="logout-button" style="display: none;">Logout</button>
+        </div>
+    </nav>
+</header>
