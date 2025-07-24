@@ -9,27 +9,21 @@
 
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <a href="{{ url_for('index') }}" id="logo-link"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70"></a>
-            </div>
-            <div>
-                <a href="{{ url_for('login') }}" id="login-link">Login</a>
-                <button id="logout-button" style="display: none;">Logout</button>
-            </div>
-        </nav>
-    </header>
+    {% include 'header.html' %}
     <main>
         <section id="filter">
             <h1 id="title-page">Available Places</h1>
             <div class="form-inline">
                 <label for="price-filter">Max Price:</label>
                 <select id="price-filter">
-                    
+                    <!-- Options will be populated dynamically -->
+                    <option disabled selected value="">--</option>
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="All">All</option>
+                </select>
             </div>
-                <!-- Options will be populated dynamically -->
-            </select>
         </section>
         <!--<section id="places-list">
             <div class="place-card">
@@ -58,9 +52,7 @@
 
         </section>
     </main>
-    <footer>
-        <p>&copy;2025 HBnB Evolution. All rights reserved.</p>
-    </footer>
+    {% include 'footer.html' %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
