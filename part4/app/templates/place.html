@@ -8,17 +8,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon.png') }}">
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <a href="{{ url_for('index') }}" id="logo-link"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="HBnB logo" width="160" height="70"></a>
-            </div>
-            <div>
-                <a href="{{ url_for('login') }}" id="login-link">Login</a>
-                <button id="logout-button" style="display: none;">Logout</button>
-            </div>
-        </nav>
-    </header>
+    {% include 'header.html' %}
     <main>
         <section id="place-details">
             <div>
@@ -59,9 +49,7 @@
             </form>
         </section>
     </main>
-    <footer>
-        <p>&copy;2025 HBnB Evolution. All rights reserved.</p>
-    </footer>
+    {% include 'footer.html' %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
