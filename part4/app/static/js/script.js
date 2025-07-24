@@ -36,7 +36,6 @@ async function loginUser(email, password) {
     const data = await response.json();
     document.cookie = `token=${data.access_token}; path=/`;
     window.location.href = 'index';
-
   } else {
     alert('Login failed: ' + response.statusText);
   }
@@ -61,7 +60,6 @@ function checkAuthentication() {
   } else {
     loginLink.style.display = 'none';
     logoutButton.style.display = 'block';
-
     // Fetch places data if the user is authenticated
     fetchPlaces(token);
   }
@@ -84,17 +82,62 @@ function getCookie(name) {
 
 async function fetchPlaces(token) {
   // Make a GET request to fetch places data
+  // Include the token in the Authorization header
   try {
-    const response = await fetch('http://localhost:5000/api/v1/places');
+    const response = await fetch('http://localhost:5000/api/v1/places', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
     console.log(data);
+    displayPlaces(data);
   } catch (error) {
     console.error('Error:', error);
   }
-  // Include the token in the Authorization header
-
   // Handle the response and pass the data to displayPlaces function
 }
+
+
+function displayPlaces(places) {
+  // Clear the current content of the places list
+  // Iterate over the places data
+  // For each place, create a div element and set its content
+  // Append the created element to the places list
+  const placesList = document.getElementById('places-list')
+  placesList.innerHTML = '';
+
+  places.forEach(place => {
+    const div = document.createElement('div');
+    div.className = 'place-card';
+
+    const heading = document.createElement('h1');
+    heading.textContent = place.title;
+
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Price per night: ' + place.price + ' €';
+
+    const form = document.createElement('form');
+    form.action = `/place?id=${place.id}`;
+
+    const button = document.createElement('button');
+    button.className = 'details-button';
+    button.textContent = 'View Details';
+
+    div.appendChild(heading);
+    div.appendChild(paragraph);
+    div.appendChild(form);
+    form.appendChild(button);
+    placesList.appendChild(div);
+  });
+}
+
+
+document.getElementById('price-filter').addEventListener('change', (event) => {
+    // Get the selected price value
+    // Iterate over the places and show/hide them based on the selected price
+});
+
