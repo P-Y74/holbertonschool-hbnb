@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from app import db
+from app.extensions import db
 from app.models.place import Place
 from app.persistence.repository import SQLAlchemyRepository
 
