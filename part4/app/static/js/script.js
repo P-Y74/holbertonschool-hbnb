@@ -1,3 +1,5 @@
+let allPlaces = [];
+
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
 
@@ -92,13 +94,13 @@ async function fetchPlaces(token) {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
+    // Handle the response and pass the data to displayPlaces function
     const data = await response.json();
-    console.log(data);
-    displayPlaces(data);
+    allPlaces = data;
+    displayPlaces(allPlaces);
   } catch (error) {
     console.error('Error:', error);
   }
-  // Handle the response and pass the data to displayPlaces function
 }
 
 
@@ -137,7 +139,15 @@ function displayPlaces(places) {
 
 
 document.getElementById('price-filter').addEventListener('change', (event) => {
-    // Get the selected price value
-    // Iterate over the places and show/hide them based on the selected price
+  // Get the selected price value
+  // Iterate over the places and show/hide them based on the selected price
+  const selectedValue = event.target.value;
+
+  if (selectedValue === 'All') {
+    displayPlaces(allPlaces);
+  } else {
+    const filtered = allPlaces.filter(place => place.price <= parseFloat(selectedValue))
+    displayPlaces(filtered);
+  }
 });
 
