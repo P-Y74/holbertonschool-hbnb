@@ -1,4 +1,4 @@
-from app import db
+from app.extensions import db
 from app.models.amenity import Amenity
 from datetime import datetime, timezone
 from app.persistence.repository import SQLAlchemyRepository
