@@ -24,8 +24,8 @@ Dependencies:
 """
 from app.models.place import Place
 from app.services import facade
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Namespace, Resource, fields
-from flask_jwt_extended import jwt_required, get_jwt_identity
 
 api = Namespace('places', description='Place operations')
 
@@ -71,7 +71,7 @@ place_model = api.model('Place', {
 })
 
 
-@api.route('/')
+@api.route('', strict_slashes=False)
 class PlaceList(Resource):
     """
     Resource class for handling the list of places.
