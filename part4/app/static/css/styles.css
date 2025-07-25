@@ -35,7 +35,7 @@ header nav {
 }
 
 footer {
-    position: fixed;
+    position:fixed;
     bottom: 0;
     background-color: #3ac4fe;
     color: #fff;
@@ -55,7 +55,6 @@ main {
 }
 
 div.place-card,
-div.place-info,
 div.review-card {
     margin: 20px;
     padding: 10px;
@@ -95,25 +94,12 @@ label {
     font-weight: bold;
 }
 
-/*section#places-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.place-details {
     padding: 20px;
-}*/
-
-/*div.place-card {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 200px;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}*/
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
 
 section#places-list {
   display: grid;
@@ -176,7 +162,28 @@ section#filter {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#review-title {
+div.reviews-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-card p:last-child {
+  font-size: 1.2rem;
+  color: gold;
+}
+
+#review-title,
+#reviews-heading {
     margin: 20px;
 }
 
