@@ -77,7 +77,7 @@ class User(BaseModel):
     is_admin = db.Column(db.Boolean, default=False)
 
     places = relationship('Place', back_populates="owner", lazy=True)
-    reviews = relationship('Review', backref='user', lazy=True)
+    reviews = relationship('Review', back_populates='user', lazy=True)
 
     def is_email_valid(self, email):
         """
