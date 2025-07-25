@@ -60,7 +60,7 @@ function checkAuthentication() {
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
-      window.location.href = 'login';
+      window.location.href = 'index';
     });
   }
 
@@ -198,18 +198,18 @@ async function fetchPlaceDetails(token, placeId) {
     }
     // Handle the response and pass the data to displayPlaces function
     const placeDetail = await response.json();
-    displayPlaceDetails(placeDetail);
+    displayPlaceDetails(placeDetail, placeDetail.reviews);
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-function displayPlaceDetails(place) {
-  console.log(place);
+function displayPlaceDetails(place, reviews) {
   const details = document.getElementById('place-details');
   details.innerHTML = '';
 
   if (place) {
+    console.log(place);
     const div1 = document.createElement('div');
     const heading = document.createElement('h1');
     heading.id = 'title-page';
@@ -228,7 +228,7 @@ function displayPlaceDetails(place) {
     para3.textContent = 'Description: ' + place.description;
 
     const para4 = document.createElement('p');
-    para4.textContent = 'Amenities: ' + place.amenities;
+    para4.textContent = 'Amenities: ' + place.amenities?.map(amenity => amenity.name).join(' ,');
 
     div1.appendChild(heading);
     div2.appendChild(para1);
@@ -237,5 +237,41 @@ function displayPlaceDetails(place) {
     div2.appendChild(para4);
     details.appendChild(div1);
     details.appendChild(div2);
+  }
+
+  if (Array.isArray(reviews) && reviews.length > 0) {
+    const reviewsSection = document.getElementById('reviews')
+    reviewsSection.innerHTML = '';
+
+    const reviewsHeading = document.createElement('h2');
+    reviewsHeading.id = 'reviews-heading';
+    reviewsHeading.textContent = 'Reviews';
+
+    reviewsSection.appendChild(reviewsHeading);
+
+    reviews.forEach((review) => {
+      const div = document.createElement('div');
+      div.className = 'reviews-card';
+
+      const para5 = document.createElement('p');
+      para5.innerHTML = `<strong>${review.user?.first_name} ${review.user?.last_name + ':'}</strong>`;
+
+      const para6 = document.createElement('p');
+      para6.textContent = review.text;
+
+      const para7 = document.createElement('p');
+      const rating = review.rating;
+
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        stars += i <= rating ? '★' : '☆';
+      }
+      para7.textContent = stars;
+
+      div.appendChild(para5);
+      div.appendChild(para6);
+      div.appendChild(para7);
+      reviewsSection.appendChild(div);
+    });
   }
 }
