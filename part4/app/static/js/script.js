@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('login-form');
   const path = window.location.pathname;
   const token = getCookie('token');
+  const reviewForm = document.getElementById('review-form');
+  let placeId = null;
 
   if (path.includes('place')) {
-    const placeId = getPlaceIdFromURL();
+    placeId = getPlaceIdFromURL();
     fetchPlaceDetails(token, placeId);
   }
 
@@ -28,9 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      // Get review text from form
+      // Make AJAX request to submit review
+      // Handle the response
+      const token = getCookie('token');
+      const text = document.getElementById('review-text');
+      const rating = parseInt(document.getElementById('rating').value, 10);
+
+      if (!text.value) {
+        alert("Ensure you write a comment");
+      } else {
+        const submit = await submitReview(token, placeId, text.value, rating);
+
+        if (submit) {
+          text.value = "";
+          document.getElementById('rating').selectedIndex = 0;
+        }
+      }
+    });
+  }
   checkAuthentication();
 });
-
 
 async function loginUser(email, password) {
   const response = await fetch('http://localhost:5000/api/v1/auth/login', {
@@ -56,6 +80,11 @@ function checkAuthentication() {
   const loginLink = document.getElementById('login-link');
   const logoutButton = document.getElementById('logout-button');
   const addReviewSection = document.getElementById('add-review');
+
+  if (window.location.pathname.includes('add_review') && !token) {
+    window.location.href = 'index';
+    return;
+  }
 
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
@@ -273,5 +302,41 @@ function displayPlaceDetails(place, reviews) {
       div.appendChild(para7);
       reviewsSection.appendChild(div);
     });
+  }
+}
+
+async function submitReview(token, placeId, reviewText, rating) {
+  // Make a POST request to submit review data
+  // Include the token in the Authorization header
+  // Send placeId and reviewText in the request body
+  // Handle the response
+  try {
+    let headers = {
+      'Content-Type': 'application/json',
+    };
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`
+    }
+    console.log('Sending token:', token);
+    console.log('Headers:', headers);
+    const response = await fetch('http://localhost:5000/api/v1/reviews', {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify({
+        place_id: placeId,
+        text: reviewText,
+        rating: rating
+      })
+    });
+    if (!response.ok) {
+      alert('Failed to submit review');
+      return false;
+    }
+    const data = await response.json();
+    alert('Review submitted successfully!');
+    return true;
+  } catch (error) {
+    console.log('Error:', error);
+    return false;
   }
 }
