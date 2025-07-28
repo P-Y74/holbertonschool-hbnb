@@ -26,8 +26,8 @@ Author:
 """
 from app.services import facade
 from flask import request
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Namespace, Resource, fields
-from flask_jwt_extended import jwt_required, get_jwt_identity
 
 api = Namespace('reviews', description='Review operations')
 
@@ -40,7 +40,7 @@ review_model = api.model('Review', {
 })
 
 
-@api.route('/')
+@api.route('', strict_slashes=False)
 class ReviewList(Resource):
     """
     Handles HTTP requests for creating and retrieving reviews.
