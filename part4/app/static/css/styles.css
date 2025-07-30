@@ -1,0 +1,230 @@
+/*
+  This is a SAMPLE File to get you started. Follow the instructions on the project to complete the tasks.
+  You'll probably need to override some of theese styles.
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #3ac4fe;
+    color: #fff;
+    padding: 1rem;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer {
+    position:fixed;
+    bottom: 0;
+    background-color: #3ac4fe;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+div.place-card,
+div.review-card {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+div a#login-link,
+div button#logout-button {
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    border: none;
+}
+
+div a#login-link:hover,
+div button#logout-button:hover {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+div #home-link {
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+h1#title-page {
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.place-details {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+div.place-card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+div.place-card .details-button {
+    background-color: #3ac4fe;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 12px 16px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+div.place-card .details-button:hover {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    padding: 12px 16px;
+}
+
+section#filter {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.form-inline {
+    text-align: center;
+}
+
+.place-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+div.reviews-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-card p:last-child {
+  font-size: 1.2rem;
+  color: gold;
+}
+
+#review-title,
+#reviews-heading {
+    margin: 20px;
+}
+
+.review-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#bold-text {
+    font-weight: bold;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#review-form textarea,
+#review-form select,
+#review-form button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin: 10px 0px;
+    align-items: center;
+}
+
+#review-form button {
+    background-color: #3ac4fe;
+    color: white;
+    border: 1px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#review-form button:hover {
+    background-color: #007BFF;
+}
+
+#review-form label {
+    font-weight: bold;
+}
+
