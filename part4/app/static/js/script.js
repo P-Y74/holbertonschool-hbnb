@@ -97,6 +97,9 @@ function checkAuthentication() {
     if (loginLink) loginLink.style.display = 'block';
     if (logoutButton) logoutButton.style.display = 'none';
     if (addReviewSection) addReviewSection.style.display = 'none';
+    if (path.includes('place')) {
+      window.location.href = 'login';
+    }
     if (path.includes('index')) {
       fetchPlaces();
     }
