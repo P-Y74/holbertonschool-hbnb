@@ -101,7 +101,7 @@ label {
     border-radius: 10px;
 }
 
-section#places-list {
+#places-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
